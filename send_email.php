@@ -53,12 +53,12 @@ $mail = new PHPMailer(true);
 try {
     // SMTP Configuration
     $mail->isSMTP();
-    $mail->Host = 'smtp.gmail.com';
+    $mail->Host = 'yourhost';
     $mail->SMTPAuth = true;
-    $mail->Username = 'booknest03@gmail.com';  // Your Gmail ID
-    $mail->Password = 'kwvu mvvf vxxu jbaq';    // Your 16-character App Password
+    $mail->Username = 'yourmail@gmail.com';  // Your Gmail ID
+    $mail->Password = 'your api pass';    
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-    $mail->Port = 587;
+    $mail->Port = port;
 
     // Email Details
     $mail->setFrom('booknest03@gmail.com', 'BookNest');
