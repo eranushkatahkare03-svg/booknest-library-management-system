@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Library Profile</title>
+  <link rel="stylesheet" href="profile.css">
+</head>
+<body>
+  <div class="profile-container">
+    <header>
+      <h1 class="fade-in">Library Profile</h1>
+      <div class="points-level fade-in">
+        <p>Points: <span id="points">120</span></p>
+        <p>Level: <span id="level">Mid</span></p>
+      </div>
+    </header>
+
+    <section class="user-details slide-in">
+      <h2>User Details</h2>
+      <p>Name: <span id="userName">John Doe</span></p>
+      <p>Email: <span id="userEmail">johndoe@example.com</span></p>
+      <!-- <p>Membership ID: <span id="membershipId">123456</span></p> -->
+    </section>
+
+    <section class="assigned-books slide-in">
+      <h2>Assigned Books</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Book Title</th>
+          </tr>
+        </thead>
+        <tbody id="assignedBooks">
+          <!-- Placeholder rows for assigned books -->
+        </tbody>
+      </table>
+    </section>
+
+    <section class="returned-books slide-in">
+      <h2>Returned Books</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Book Title</th>
+            <th>Return Date</th>
+          </tr>
+        </thead>
+        <tbody id="returnedBooks">
+          <!-- Placeholder rows for returned books -->
+        </tbody>
+      </table>
+    </section>
+
+    <section class="fine-details slide-in">
+      <h2>Fine Details</h2>
+      <p>Total Fine: <span id="fineAmount">5.00</span></p>
+    </section>
+
+    <button class="logout-btn pulse" onclick="logout()">Logout</button>
+  </div>
+
+  <script src="profile.js"></script>
+</body>
+</html>

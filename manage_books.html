@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staff Dashboard - Book Management</title>
+    <link rel="stylesheet" href="b.css">
+</head>
+<body>
+    <h2>📚 Staff Book Management</h2>
+
+    <!-- Add Book Section -->
+    <div class="form-container">
+        <h3>Add New Book</h3>
+        <input type="text" id="book_name" placeholder="Book Name">
+        <input type="text" id="author" placeholder="Author">
+        <input type="text" id="publication" placeholder="publication">
+        <input type="number" id="copies" placeholder="Number of Copies">
+        <input type="number" id="price" placeholder="Price">
+        <input type="text" id="img" placeholder="image">
+        <input type="text" id="loc" placeholder="location">
+        <input type="text" id="discription" placeholder="discription">
+        <input type="text" id="cat" placeholder="category">
+
+    
+        <button onclick="addBook()">Add Book</button>
+    </div>
+
+    <!-- Mark Book as Lost -->
+    <div class="form-container">
+        <h3>Mark Book as Lost</h3>
+        <input type="text" id="lost_barcode" placeholder="Enter Barcode">
+        <button onclick="markBookLost()">Mark as Lost</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+<script>
+    // Function to add a book
+    function addBook() {
+    const bookName = document.getElementById("book_name").value;
+    const author = document.getElementById("author").value;
+    const copies = document.getElementById("copies").value;
+    const price = document.getElementById("price").value;
+    const img = document.getElementById("img").value;
+    const cat = document.getElementById("cat").value;
+    const publi = document.getElementById("publication").value;
+    const dis = document.getElementById("discription").value;
+    const loc = document.getElementById("loc").value;
+
+    if (!bookName || !author || !copies || !price ||!img ||!cat ||!publi ||!dis||!loc) {
+        alert("Please fill all fields!");
+        return;
+    }
+
+    fetch("add_book.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ book_name: bookName, author: author, copies: copies, price:price,img:img,cat:cat,publi:publi,dis:dis,loc:loc })
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log("Server Response:", data);
+        alert(data.message);
+    })
+    .catch(error => console.error("Error:", error));
+}
+
+
+// Function to mark a book as lost
+function markBookLost() {
+    const barcode = document.getElementById("lost_barcode").value;
+
+    if (!barcode) {
+        alert("Please enter a barcode!");
+        return;
+    }
+
+    fetch("mark_lost.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ barcode: barcode })
+    })
+    .then(response => response.json())
+    .then(data => alert(data.message))
+    .catch(error => console.error("Error:", error));
+}
+
+</script>
+</html>

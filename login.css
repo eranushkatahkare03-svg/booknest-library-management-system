@@ -1,0 +1,138 @@
+/* Body styles with gradient background */
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(
+    to top,
+    #81cbd4,
+    transparent
+  ); /* Gradient from bottom to top */
+  color: #fff;
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Center container with padding */
+.container {
+  width: 420px; /* Increased width slightly */
+  background: rgba(
+    0,
+    0,
+    0,
+    0.8
+  ); /* Semi-transparent black background for the box */
+  padding: 20px 30px; /* Added padding on the right and left */
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Subtle shadow */
+}
+.book-card {
+  position: relative;
+  width: 200px; /* Adjust based on your layout */
+  text-align: center;
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.book-card img {
+  width: 100%;
+  height: auto;
+  cursor: pointer;
+}
+
+.book-popup {
+  position: absolute;
+  bottom: 100%; /* Positions above the book card */
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  width: 220px;
+  text-align: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.book-card:hover .book-popup {
+  opacity: 1;
+  visibility: visible;
+}
+
+.reminder-btn {
+  background-color: #ffcc00;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  margin-top: 5px;
+  border-radius: 3px;
+}
+
+/* Black-theme for forms */
+h2 {
+  text-align: center;
+  color: #fff;
+}
+
+label {
+  margin-top: 10px;
+  display: block;
+  font-size: 14px;
+  color: #ddd;
+}
+
+input,
+select {
+  width: calc(100% - 10px); /* Leave space to prevent touching the edges */
+  padding: 10px;
+  margin: 5px 0;
+  border: 1px solid #444;
+  border-radius: 4px;
+  background: #222;
+  color: #fff;
+  font-size: 14px;
+  box-sizing: border-box; /* Ensures padding doesn't break layout */
+}
+
+button {
+  margin-top: 20px;
+  padding: 10px;
+  width: 100%;
+  background-color: #333;
+  color: #fff;
+  border: 1px solid #444;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: 0.3s ease;
+}
+
+button:hover {
+  background-color: #555;
+}
+
+.toggle-link {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 14px;
+  color: #aaa;
+}
+
+.toggle-link a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.toggle-link a:hover {
+  text-decoration: underline;
+}
+
+/* Hidden class for toggling forms */
+.hidden {
+  display: none;
+}

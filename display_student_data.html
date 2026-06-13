@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BOOKNEST - Book Data</title>
+    <link rel="stylesheet" />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+        color: #333;
+        overflow-x: hidden;
+      }
+
+      h1 {
+        text-align: center;
+        margin-top: 20px;
+      }
+
+      nav {
+        background-color: #333;
+        color: white;
+        padding: 10px 0;
+      }
+
+      .nav-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 80%;
+        margin: 0 auto;
+      }
+
+      .logo {
+        font-size: 24px;
+        font-weight: bold;
+      }
+
+      nav ul {
+        list-style: none;
+        display: flex;
+        gap: 20px;
+      }
+
+      nav ul li {
+        display: inline;
+      }
+
+      nav ul li a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+      }
+
+      nav ul li a:hover {
+        text-decoration: underline;
+      }
+      .hero-section {
+        width: 100%;
+        height: 450px;
+        background: url("hero2.jpg") no-repeat center center/cover;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: black;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        opacity: 0.8;
+        position: relative;
+
+        padding-top: 90px;
+        padding-left: 40px; /* Added padding to move text left */
+      }
+
+      .hero-section h1 {
+        font-size: 2.5rem;
+      }
+
+      .container {
+        width: 80%;
+        margin: 20px auto;
+        background: #fff;
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      table th,
+      table td {
+        padding: 12px;
+        border: 1px solid #ddd;
+        text-align: center;
+      }
+
+      th {
+        background-color: #4372a4;
+        color: white;
+      }
+
+      tr:nth-child(even) {
+        background-color: #f2f2f2;
+      }
+
+      tr:hover {
+        background-color: #e0e0e0;
+      }
+
+      /* Footer Styles */
+      .footer {
+        background-color: #364649;
+        color: white;
+        padding: 20px 20px;
+        font-size: 0.9rem;
+      }
+
+      .footer-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 10px;
+      }
+
+      .footer-section {
+        flex: 1;
+        min-width: 200px;
+      }
+
+      .footer-section h3 {
+        color: #81cbd4;
+        margin-bottom: 10px;
+      }
+
+      .footer-section p,
+      .footer-section ul,
+      .footer-section li {
+        margin: 5px 0;
+      }
+
+      .footer-section ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      .footer-section li a {
+        text-decoration: none;
+        color: white;
+      }
+
+      .footer-section li a:hover {
+        color: #81cbd4;
+      }
+
+      .footer-bottom {
+        text-align: center;
+        margin-top: 20px;
+        border-top: 1px solid #555;
+        padding-top: 10px;
+        font-size: 0.8rem;
+      }
+
+      .footer-section .fas {
+        margin-right: 8px;
+      }
+
+      .footer-section a {
+        color: white;
+        text-decoration: none;
+      }
+
+      .footer-section a:hover {
+        text-decoration: underline;
+        color: #81cbd4;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div class="nav-container">
+        <div class="logo">BOOKNEST</div>
+        <ul>
+          <li><a href="staff.html">Home</a></li>
+          <li><a href="bookdata.html">Book Data</a></li>
+          <li><a href="studdata.html">Student Data</a></li>
+          <li><a href="manage_books.html">Manage Books</a></li>
+
+        </ul>
+      </div>
+    </nav>
+
+    <div class="hero-section">
+      <h1>Student Data</h1>
+    </div>
+
+    <div class="container">
+      <table id="studentTable">
+        <thead>
+          <tr>
+              <th>Student ID</th>
+              <th>Enrollment no</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Assigned book</th>
+              <th>Fine</th>
+              <th>Book Name</th>
+              <th>Lost Book</th>
+              <th>Return Book</th>
+              <th>Clear Fine</th>
+          </tr>
+      </thead>
+      <tbody id="student-data">
+          <!-- Data will be populated here -->
+      </tbody>
+      </table>
+    </div>
+ <!-- Footer Section -->
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-section about">
+          <h3>About Us</h3>
+          <p>
+            BookNest is your one-stop digital library solution, providing easy
+            access to books and library services with an intuitive interface and
+            advanced features.
+          </p>
+        </div>
+        <div class="footer-section faq">
+          <h3>FAQ</h3>
+          <ul>
+            <li><a href="#">How to issue a book?</a></li>
+            <li><a href="#">What is the fine for late returns?</a></li>
+            <li><a href="#">How can I renew a book online?</a></li>
+            <li><a href="#">How to access digital books?</a></li>
+          </ul>
+        </div>
+        <div class="footer-section library-info">
+          <h3>Library Info</h3>
+          <p>
+            <strong>Library Hours:</strong> Mon-Fri: 8 AM - 8 PM, Sat: 10 AM - 4
+            PM
+          </p>
+          <p>
+            <strong>Location:</strong> Bharati Vidyapeeth Institute of
+            Technology
+          </p>
+        </div>
+        <div class="footer-section contact">
+          <h3>Contact Us</h3>
+          <p><i class="fas fa-phone"></i> +91-9876543210</p>
+          <p><i class="fas fa-phone"></i> +91-9123456789</p>
+          <p><i class="fas fa-envelope"></i> support@booknest.com</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 BookNest. All Rights Reserved.</p>
+      </div>
+    </footer>
+    <script>
+      // Fetch Student Data & Book Prices
+      async function fetchStudentData() {
+    try {
+        let response = await fetch("http://localhost/BookNest/fetch_student.php");
+        let data = await response.json();
+
+        if (data.error) {
+            console.error("Error:", data.error);
+            return;
+        }
+
+        let tableBody = document.getElementById("student-data");
+        tableBody.innerHTML = "";
+
+        for (let student of data) {
+            let bookBarcode = student.Barcode ? student.Barcode.trim() : ""; // Ensure barcode is not empty
+            let row = document.createElement("tr");
+            row.innerHTML = `
+                <td class="libNo">${student.library_number}</td>
+                <td>${student.ENROLLMENT_NO}</td>
+                <td>${student.STUD_NAME}</td>
+                <td>${student.EMAIL}</td>
+                <td>${student.ASSIGNED_BOOK}</td>
+                <td class="fine">${student.fine_amount || 0}</td>
+                <td class="book" data-barcode="${bookBarcode}">${bookBarcode || "No Barcode"}</td>
+                <td>
+                    <button class="lost-btn">Lost Book</button></td>
+                    <td>
+                    <button class="return-btn">Return Book</button></td>
+
+                    <td><button class="clear-btn">Clear Fine</button></td>
+                
+            `;
+
+            tableBody.appendChild(row);
+
+            if (bookBarcode) {
+                try {
+                    let priceResponse = await fetch(`http://localhost/BookNest/get_book_price.php?barcode=${encodeURIComponent(bookBarcode)}`);
+
+                    // Check if response is valid JSON
+                    let textResponse = await priceResponse.text();
+                    console.log("Raw response from server:", textResponse);
+
+                    try {
+                        let priceData = JSON.parse(textResponse);
+                        console.log("Price Data Received:", priceData);
+
+                        if (priceData.success && priceData.book_price) {
+                            let bookCell = row.querySelector(".book");
+                            bookCell.setAttribute("data-price", priceData.book_price);
+                        }
+                    } catch (jsonError) {
+                        console.error("Error parsing JSON:", jsonError);
+                    }
+                } catch (error) {
+                    console.error("Error fetching book price:", error);
+                }
+            }
+        }
+    } catch (error) {
+        console.error("Fetch Error:", error);
+    }
+}
+
+// Run the function
+fetchStudentData();
+
+
+
+// Handle Lost Book & Book Return
+document.getElementById("student-data").addEventListener("click", async function (e) {
+    if (e.target.classList.contains("lost-btn") || e.target.classList.contains("return-btn")) {
+        e.preventDefault();
+
+        let row = e.target.closest("tr");
+        let libNo = row.querySelector(".libNo").textContent.trim();
+        let bookBarcode = row.querySelector(".book").getAttribute("data-barcode");
+
+        if (!libNo || !bookBarcode) {
+            console.error("Missing student ID or book barcode!");
+            return;
+        }
+
+        let isLost = e.target.classList.contains("lost-btn");
+        let endpoint = isLost ? "lost_book.php" : "return.php";
+       
+
+        let bookPrice = row.querySelector(".book").getAttribute("data-price") || 0;
+        bookPrice = parseFloat(bookPrice); // Ensure it's a number
+
+        console.log(`${isLost ? "Marking as lost" : "Returning"} book:`, { student_id: libNo, book_barcode: bookBarcode, book_price: bookPrice });
+
+        try {
+            let response = await fetch(`http://localhost/BookNest/${endpoint}`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ student_id: libNo, book_barcode: bookBarcode, book_price: bookPrice })
+            });
+
+            let text = await response.text();
+            console.log("Raw Response:", text);
+            
+            let result = JSON.parse(text);
+            console.log("Parsed JSON:", result);
+
+            alert(result.message);
+
+            if (result.success) {
+                if (isLost) {
+                    let fineCell = row.querySelector(".fine");
+                    fineCell.textContent = parseFloat(fineCell.textContent || "0") + bookPrice;
+                } else {
+                    window.location.reload(); // Refresh on return success
+                }
+            }
+        } catch (error) {
+            console.error("Error:", error);
+        }
+    }
+});
+
+
+//clear fine
+document.getElementById("student-data").addEventListener("click", async function (e) {
+    if (e.target.classList.contains("clear-btn")) {
+        e.preventDefault();
+
+        let row = e.target.closest("tr");
+        let libNo = row.querySelector(".libNo").textContent.trim();
+  if (!libNo) {
+    alert("Library number not found!");
+    return;
+  }
+
+  fetch("clear_fine.php", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ student_id: libNo }),
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      if (data.success) {
+        alert("Fine cleared successfully!");
+        row.querySelector(".fine").textContent = "0";
+      } else {
+        console.error("Error clearing fine:", data.message);
+        alert("Failed to clear fine: " + data.message);
+      }
+    })
+    .catch((error) => {
+      console.error("Error clearing fine:", error);
+    });
+}
+});
+
+    
+
+
+
+
+// Call fetch function on page load
+fetchStudentData();
+
+  </script>
+  
+  </body>
+</html>

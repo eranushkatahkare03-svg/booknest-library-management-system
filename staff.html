@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staff</title>
+    <link rel="stylesheet" href="staff.css">
+  
+</head>
+<body>
+    <div class="container">
+        <h2>Staff Request Management</h2>
+
+        <!-- Request Notification -->
+        <div class="request">
+            <p id="request-text"></p>
+
+            <!-- Accept or Cancel Buttons -->
+            <div class="buttons">
+                <button id="accept-btn" class="btn">Accept</button>
+                <button id="cancel-btn" class="btn">Cancel</button>
+            </div>
+
+            <!-- Student ID Input (Appears after accepting) -->
+            <div id="student-id-section">
+                <p>Scan or Enter Student Library Number:</p>
+                <input type="text" id="student-id" placeholder="Enter Library No.">
+                <button id="confirm-btn" class="btn">Confirm</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+let scannedBarcode = localStorage.getItem('scannedBarcode');
+let bookBarcode = scannedBarcode ? scannedBarcode.trim() : null;
+
+// Ensure only one onload function
+window.onload = function() {
+    if (bookBarcode) {
+        document.getElementById('request-text').innerText = "Request received for barcode: " + bookBarcode;
+        alert("A request has been received for barcode: " + bookBarcode);
+        localStorage.removeItem('scannedBarcode');
+    } else {
+        document.getElementById('request-text').innerText = "No barcode scanned yet.";
+    }
+};
+
+// Display student ID input on "Accept"
+document.getElementById("accept-btn").addEventListener("click", function() {
+    document.getElementById("student-id-section").style.display = "block";
+    document.getElementById("confirm-btn").style.display = "inline-block";
+});
+
+// Handle "Cancel"
+document.getElementById("cancel-btn").addEventListener("click", function() {
+    alert("Request has been cancelled.");
+    location.reload();
+});
+
+document.getElementById("confirm-btn").addEventListener("click", function() {
+    let studentID = document.getElementById("student-id").value.trim();
+
+    if (!studentID) {
+        alert("Please enter a valid student library number.");
+        return;
+    }
+
+    // Ensure bookBarcode is not null
+    if (!bookBarcode) {
+        alert("Error: No book barcode found.");
+        return;
+    }
+
+    document.getElementById("confirm-btn").disabled = true;
+//Send request to PHP
+
+fetch("http://localhost/BookNest/test_connection.php", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+        student_id: studentID,
+        book_barcode: bookBarcode
+    })
+})
+.then(response => response.text())  // Read response as text
+.then(text => {
+    try {
+        return JSON.parse(text);  // Parse JSON safely
+    } catch (error) {
+        console.error("Invalid JSON response:", text);
+       // alert("Server error: Invalid response received.");
+        throw error;
+    }
+})
+.then(data => {
+    if (data.status === "error") {
+        alert(data.message); // Alert if the book is not available
+    } else {
+        console.log(data.message); // Proceed with book issuing
+    }
+    if (data.success) {
+        alert("Request is sent.");
+    } else {
+        alert("Error: " + data.message);
+    }
+})
+.catch(error => console.error("Fetch error:", error));
+
+});
+
+
+        
+    </script>
+</body>
+</html>

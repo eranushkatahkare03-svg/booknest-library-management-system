@@ -1,0 +1,413 @@
+/* General Reset */
+body,
+html {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to top, #ffffff, #0a5161);
+  overflow-x: hidden;
+}
+
+/* Navigation Bar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #333;
+  color: white;
+  z-index: 1;
+  position: fixed;
+  transition: background-color 0.5s ease;
+  width: 100%;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  height: 60px;
+  margin-right: 10px;
+}
+
+.brand-name {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+}
+
+.nav-links li {
+  display: flex;
+  align-items: center;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  background-color: #555;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.search-bar input {
+  border: none;
+  outline: none;
+  background: transparent;
+  color: white;
+  padding: 5px;
+}
+
+.search-bar button {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+.complete {
+  margin-top: 90px;
+  display: flex;
+  flex-direction: row;
+}
+
+.bgcolor {
+  background-color: #364649;
+  transition: all 1s;
+}
+
+.hero-section {
+  width: 100%;
+  height: 450px;
+  background: url("hero2.jpg") no-repeat center center/cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: black;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  opacity: 0.8;
+
+  position: relative;
+  margin-top: 50px;
+  padding-top: 90px;
+  padding-left: 40px; /* Added padding to move text left */
+}
+
+.hero-section h1 {
+  font-size: 2.5rem;
+}
+/* Carousel Container */
+.carousel-container {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  padding: 20px;
+  margin-top: 60px;
+}
+
+.carousel {
+  display: flex;
+  flex-wrap: wrap; /* Allow books to wrap into rows */
+  gap: 20px; /* Spacing between books */
+  padding-bottom: 10px;
+  padding-right: 20px;
+  justify-content: space-evenly;
+}
+
+.carousel::-webkit-scrollbar {
+  display: flex;
+}
+
+.book-title {
+  margin-top: 10px;
+  font-size: 16px;
+  text-align: center;
+  width: 100%; /* Ensures it takes full width for centering */
+}
+
+.book-info h3 {
+  font-size: 1rem;
+  margin: 0 0 10px 0;
+}
+
+.book-container {
+  width: 280px; /* Fixed width */
+  background-color: #f5f5f5;
+  padding: 15px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 450px; /* Increased height */
+}
+
+.book-container img {
+  width: 100%;
+  height: auto; /* Maintain aspect ratio */
+  max-height: 280px; /* Prevents overflow */
+  object-fit: contain; /* Ensures full image is visible */
+  border-radius: 5px;
+}
+
+/* Proper alignment for book details */
+.book-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  flex-grow: 1;
+}
+
+.book-title {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.book-location {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+/* Buttons aligned side by side */
+.book-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.issue-btn {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+}
+
+.wishlist-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  color: #888;
+}
+
+.wishlist-btn:hover {
+  color: red;
+}
+
+.added-to-wishlist {
+  color: red;
+}
+
+.book-card {
+  width: calc(25% - 20px); /* 4 books per row */
+  margin-bottom: 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between; /* Ensures even spacing */
+  height: 400px; /* Set a fixed height for uniformity */
+}
+
+.book-card img {
+  width: 100%;
+  max-height: 250px; /* Maintain consistent height */
+  object-fit: contain; /* Prevent stretching */
+}
+
+.book-info button {
+  margin-top: 10px;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.book-container h3 {
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+.book-container p {
+  font-size: 14px;
+  color: #555;
+}
+
+.issue-btn:hover {
+  background-color: #45a049;
+}
+
+.added-to-wishlist {
+  color: red; /* Change heart icon color */
+}
+
+/* Responsive Design */
+@media screen and (max-width: 1024px) {
+  .book-card {
+    flex: 0 0 30%; /* 3 books per row */
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .nav-links {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .carousel {
+    gap: 15px;
+  }
+
+  .book-card {
+    flex: 0 0 45%; /* 2 books per row */
+  }
+}
+/* Blur effect on background when modal is active */
+body.modal-active {
+  overflow: hidden; /* Prevent scrolling when modal is open */
+}
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5); /* Dark overlay */
+  backdrop-filter: blur(5px); /* Blurs the background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Modal content centered */
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  width: 300px;
+  position: relative;
+}
+
+/* Close button */
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  cursor: pointer;
+}
+/* Blur background when modal is active */
+.modal-active {
+  filter: blur(5px);
+  pointer-events: none; /* Prevent clicking background */
+}
+
+/* Ensure modal content remains visible */
+.modal-active .modal {
+  pointer-events: auto;
+  filter: none;
+}
+
+@media screen and (max-width: 480px) {
+  .logo h1 {
+    font-size: 1.2rem;
+  }
+
+  .book-card {
+    flex: 0 0 90%; /* 1 book per row */
+  }
+}
+
+/* Footer Styles */
+.footer {
+  background-color: #364649;
+  color: white;
+  padding: 20px 20px;
+  font-size: 0.9rem;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.footer-section {
+  flex: 1;
+  min-width: 200px;
+}
+
+.footer-section h3 {
+  color: #81cbd4;
+  margin-bottom: 10px;
+}
+
+.footer-section p,
+.footer-section ul,
+.footer-section li {
+  margin: 5px 0;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section li a {
+  text-decoration: none;
+  color: white;
+}
+
+.footer-section li a:hover {
+  color: #81cbd4;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 20px;
+  border-top: 1px solid #555;
+  padding-top: 10px;
+  font-size: 0.8rem;
+}
+
+.footer-section .fas {
+  margin-right: 8px;
+}
+
+.footer-section a {
+  color: white;
+  text-decoration: none;
+}
+
+.footer-section a:hover {
+  text-decoration: underline;
+  color: #81cbd4;
+}

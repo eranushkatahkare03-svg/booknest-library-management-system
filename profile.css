@@ -1,0 +1,150 @@
+:root {
+  --main-color: #81CBD4;
+  --text-color: #333;
+  --background-color: #f4f4f4;
+  --card-background: #ffffff;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+.profile-container {
+  max-width: 800px;
+  margin: 20px auto;
+  background: var(--card-background);
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  animation: fadeIn 1s ease-in-out;
+}
+
+header {
+  background: var(--main-color);
+  color: white;
+  text-align: center;
+  padding: 30px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+header .points-level {
+  margin-top: 10px;
+  font-size: 1.1rem;
+}
+
+/* Profile Picture Styling */
+.profile-pic-container {
+  display: flex;
+  justify-content: center;
+  margin-top: -30px;
+  animation: slideIn 0.7s ease-in-out;
+}
+
+.profile-pic {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 5px solid var(--main-color);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.profile-pic:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+section {
+  padding: 20px;
+  border-top: 1px solid #ddd;
+  animation: slideIn 0.7s ease-in-out;
+}
+
+section h2 {
+  color: var(--main-color);
+  margin-bottom: 10px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+table th, table td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: left;
+  font-size: 0.9rem;
+}
+
+table th {
+  background-color: var(--main-color);
+  color: white;
+}
+
+table tr:hover {
+  background-color: rgba(129, 203, 212, 0.2);
+  transition: background-color 0.3s;
+}
+
+button.logout-btn {
+  display: block;
+  width: 100%;
+  padding: 15px;
+  background: var(--main-color);
+  color: white;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background 0.3s, transform 0.2s;
+}
+
+button.logout-btn:hover {
+  background: #6fb4bf;
+  transform: scale(1.05);
+}
+
+button.logout-btn.pulse {
+  animation: pulse 1.5s infinite;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}

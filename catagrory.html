@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Categories</title>
+   
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .library-container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .category-heading {
+            font-size: 1.5rem;
+            color: #333;
+            margin: 20px 0 10px;
+            padding: 10px;
+            background: #81cbd4;
+            color: white;
+            text-align: center;
+            border-radius: 5px;
+        }
+        .books-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        .book-card {
+            background: white;
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 200px;
+            position: relative;
+        }
+        .book-image {
+            width: 100px;
+            height: 150px;
+        }
+        .msbte-indicator {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            color: green;
+            font-size: 18px;
+        }
+        .book-buttons button {
+            margin: 5px;
+            padding: 8px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .issue-btn { background-color: blue; color: white; }
+        .wishlist-btn { background-color: red; color: white; }
+        .location-btn { background-color: gray; color: white; }
+
+        .navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #333;
+  color: white;
+}
+
+.navbar .logo img {
+  width: 120px;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+}
+
+.nav-links li {
+  display: flex;
+  align-items: center;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  background-color: #555;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.search-bar input {
+  border: none;
+  outline: none;
+  background: transparent;
+  color: white;
+  padding: 5px;
+}
+
+.search-bar button {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+/* Footer Styles */
+.footer {
+  background-color: #333;
+  color: white;
+  padding: 20px 20px;
+  font-size: 0.9rem;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.footer-section {
+  flex: 1;
+  min-width: 200px;
+}
+
+.footer-section h3 {
+  color: #81cbd4;
+  margin-bottom: 10px;
+}
+
+.footer-section p,
+.footer-section ul,
+.footer-section li {
+  margin: 5px 0;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section li a {
+  text-decoration: none;
+  color: white;
+}
+
+.footer-section li a:hover {
+  color: #81cbd4;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 20px;
+  border-top: 1px solid #555;
+  padding-top: 10px;
+  font-size: 0.8rem;
+}
+
+.footer-section .fas {
+  margin-right: 8px;
+}
+
+.footer-section a {
+  color: white;
+  text-decoration: none;
+}
+
+.footer-section a:hover {
+  text-decoration: underline;
+  color: #81cbd4;
+}
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: 50%;
+    position: relative;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.location-image {
+    width: 100%;
+    border-radius: 5px;
+}
+
+    </style>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo">
+          <img
+            src="final_logo.png"
+            alt="BookNest Logo"
+          />
+        </div>
+        <ul class="nav-links">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Category</a></li>
+          <li>
+            <div class="search-bar">
+              <input type="text" placeholder="Search books..." />
+              <button><i class="fas fa-search"></i></button>
+            </div>
+          </li>
+          <li>
+            <a href="#"><i class="fas fa-heart"></i> </a>
+          </li>
+          <li>
+            <a href="#"><i class="fas fa-user"></i></a>
+          </li>
+        </ul>
+      </nav><br><br>
+    <div class="library-container">
+        
+        <!-- Department Books -->
+        <h2 class="category-heading">Department Books</h2>
+        <div class="books-wrapper">
+            <div class="book-card">
+                <img src="images/.jpg" alt="Book" class="book-image">
+                <h3>Book Title 1</h3>
+                <div class="book-buttons">
+                    <button class="issue-btn">Issue</button>
+                    <button class="wishlist-btn">❤</button>
+                    <button class="location-btn">Location</button>
+                </div>
+            </div>
+            <div class="book-card">
+                <img src="images/book2.jpg" alt="Book" class="book-image">
+                <h3>Book Title 2</h3>
+                <div class="book-buttons">
+                    <button class="issue-btn">Issue</button>
+                    <button class="wishlist-btn">❤</button>
+                    <button class="location-btn">Location</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Magazines -->
+        <h2 class="category-heading">Magazines</h2>
+        <div class="books-wrapper">
+            <div class="book-card">
+                <img src="images/mag1.jpg" alt="Magazine" class="book-image">
+                <h3>Magazine 1</h3>
+                <div class="book-buttons">
+                    <button class="wishlist-btn">❤</button>
+                    <button class="location-btn">Location</button>
+                </div>
+            </div>
+            <div class="book-card">
+                <img src="images/mag2.jpg" alt="Magazine" class="book-image">
+                <h3>Magazine 2</h3>
+                <div class="book-buttons">
+                    <button class="wishlist-btn">❤</button>
+                    <button class="location-btn">Location</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- MSBTE-Suggested Books -->
+        <h2 class="category-heading">MSBTE-Suggested Books</h2>
+        <div class="books-wrapper">
+            <div class="book-card">
+                <img src="images/msbte1.jpg" alt="MSBTE Book" class="book-image">
+                <h3>MSBTE Book 1</h3>
+                <span class="msbte-indicator">✔</span>
+                <div class="book-buttons">
+                    <button class="issue-btn">Issue</button>
+                    <button class="wishlist-btn">❤</button>
+                    <button class="location-btn">Location</button>
+                </div>
+            </div>
+            <div class="book-card">
+                <img src="images/msbte2.jpg" alt="MSBTE Book" class="book-image">
+                <h3>MSBTE Book 2</h3>
+                <span class="msbte-indicator">✔</span>
+                <div class="book-buttons">
+                    <button class="issue-btn">Issue</button>
+                    <button class="wishlist-btn">❤</button>
+                    <button class="location-btn">Location</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Location Popup Modal -->
+<div id="locationModal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn">&times;</span>
+        <h2>Book Location</h2>
+        <img src="images/cupboard-layout.jpg" alt="Library Layout" class="location-image">
+    </div>
+</div>
+
+
+    <br><br>
+    <!-- Footer Section -->
+<footer class="footer">
+    <div class="footer-container">
+      <!-- About Us -->
+      <div class="footer-section about">
+        <h3>About Us</h3>
+        <p>
+          BookNest is your one-stop digital library solution, providing easy access
+          to books and library services with an intuitive interface and advanced
+          features.
+        </p>
+      </div>
+     <!-- Footer Section -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-section about">
+        <h3>About Us</h3>
+        <p>
+          BookNest is your one-stop digital library solution, providing easy access
+          to books and library services with an intuitive interface and advanced
+          features.
+        </p>
+      </div>
+      <div class="footer-section faq">
+        <h3>FAQ</h3>
+        <ul>
+          <li><a href="#">How to issue a book?</a></li>
+          <li><a href="#">What is the fine for late returns?</a></li>
+          <li><a href="#">How can I renew a book online?</a></li>
+          <li><a href="#">How to access digital books?</a></li>
+        </ul>
+      </div>
+      <div class="footer-section library-info">
+        <h3>Library Info</h3>
+        <p>
+          <strong>Library Hours:</strong> Mon-Fri: 8 AM - 8 PM, Sat: 10 AM - 4 PM
+        </p>
+        <p>
+          <strong>Location:</strong> Bharati Vidyapeeth Institute of Technology
+        </p>
+      </div>
+      <div class="footer-section contact">
+        <h3>Contact Us</h3>
+        <p><i class="fas fa-phone"></i> +91-9876543210</p>
+        <p><i class="fas fa-phone"></i> +91-9123456789</p>
+        <p><i class="fas fa-envelope"></i> support@booknest.com</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 BookNest. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script src="cat.js"></script>
+
+    </body>
+  </html>
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scanner Interface</title>
+    <script src="https://unpkg.com/quagga@0.12.1/dist/quagga.min.js"></script>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+
+        .scanner-container {
+            width: 400px;
+            background: white;
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            border-radius: 10px;
+            position: relative;
+        }
+
+        h1 {
+            color: #333;
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+
+        .scan-area {
+            width: 100%;
+            height: 300px;
+            border: 3px solid #81CBD4;
+            border-radius: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .scan-area::before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 3px;
+            background: #81CBD4;
+            top: 50%;
+            left: 0;
+            animation: scanning 2s linear infinite;
+        }
+
+        @keyframes scanning {
+            0% { top: 5%; }
+            50% { top: 50%; }
+            100% { top: 95%; }
+        }
+
+        #barcode-scanner {
+            width: 100%;
+            height: 100%;
+        }
+
+        .scan-message {
+            margin-top: 15px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="scanner-container">
+        <h1>Scan Barcode</h1>
+        <div class="scan-area">
+            <div id="barcode-scanner"></div>
+        </div>
+        <p class="scan-message" id="scan-result">Waiting for scan...</p>
+    </div>
+
+    <script>
+
+function startScanner() {
+    let scanned = false; // Lock to prevent multiple scans
+
+    Quagga.init({
+        inputStream: {
+            type: "LiveStream",
+            target: document.querySelector('#barcode-scanner'),
+            constraints: {
+                facingMode: "environment"
+            }
+        },
+        decoder: {
+            readers: ["code_128_reader", "ean_reader", "upc_reader", "code_39_reader"]
+        }
+    }, function (error) {
+        if (error) {
+            console.error("Quagga initialization error:", error);
+            return;
+        }
+        Quagga.start();
+    });
+
+    Quagga.onDetected(function (result) {
+        if (!scanned) {
+            scanned = true; // Lock to prevent duplicate scans
+            const code = result.codeResult.code;
+
+            // Store barcode in localStorage for other pages
+            localStorage.setItem('scannedBarcode', code);
+
+            // Update UI with scanned code
+            document.getElementById("scan-result").innerText = "Scanned Code: " + code;
+            alert("Barcode detected: " + code);
+
+            // Stop scanner after successful scan
+            Quagga.stop();
+
+            // Redirect to staff page (optional)
+           
+        }
+    });
+}
+
+startScanner();
+
+   
+    </script>
+
+</body>
+</html>

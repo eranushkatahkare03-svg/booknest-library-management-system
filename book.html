@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Books</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        #books {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            max-width: 900px;
+            margin: auto;
+            padding: 20px;
+        }
+        .book-card {
+            background: #f4f4f4;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .book-card img {
+            width: 150px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+        /* Footer Styles */
+.footer {
+  background-color: #333;
+  color: white;
+  padding: 20px 20px;
+  font-size: 0.9rem;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.footer-section {
+  flex: 1;
+  min-width: 200px;
+}
+
+.footer-section h3 {
+  color: #81cbd4;
+  margin-bottom: 10px;
+}
+
+.footer-section p,
+.footer-section ul,
+.footer-section li {
+  margin: 5px 0;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section li a {
+  text-decoration: none;
+  color: white;
+}
+
+.footer-section li a:hover {
+  color: #81cbd4;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 20px;
+  border-top: 1px solid #555;
+  padding-top: 10px;
+  font-size: 0.8rem;
+}
+
+.footer-section .fas {
+  margin-right: 8px;
+}
+
+.footer-section a {
+  color: white;
+  text-decoration: none;
+}
+
+.footer-section a:hover {
+  text-decoration: underline;
+  color: #81cbd4;
+}
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #333;
+  color: white;
+}
+
+.navbar .logo img {
+  width: 120px;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+}
+
+.nav-links li {
+  display: flex;
+  align-items: center;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  background-color: #555;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.search-bar input {
+  border: none;
+  outline: none;
+  background: transparent;
+  color: white;
+  padding: 5px;
+}
+
+.search-bar button {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+    </style>
+</head>
+<body>
+<!-- Navigation Bar -->
+<nav class="navbar">
+    <div class="logo">
+      <img
+        src="final_logo.png"
+        alt="BookNest Logo"
+      />
+    </div>
+    <ul class="nav-links">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Category</a></li>
+      <li>
+        <div class="search-bar">
+          <input type="text" placeholder="Search books..." />
+          <button><i class="fas fa-search"></i></button>
+        </div>
+      </li>
+      <li>
+        <a href="#"><i class="fas fa-heart"></i> </a>
+      </li>
+      <li>
+        <a href="#"><i class="fas fa-user"></i></a>
+      </li>
+    </ul>
+  </nav><br><br>
+
+  <h2 id="dept-title">Books for </h2>
+  <div id="books"></div>
+
+<!-- Footer Section -->
+<footer class="footer">
+<div class="footer-container">
+  <!-- About Us -->
+  <div class="footer-section about">
+    <h3>About Us</h3>
+    <p>
+      BookNest is your one-stop digital library solution, providing easy access
+      to books and library services with an intuitive interface and advanced
+      features.
+    </p>
+  </div>
+ <!-- Footer Section -->
+<footer class="footer">
+<div class="footer-container">
+  <div class="footer-section about">
+    <h3>About Us</h3>
+    <p>
+      BookNest is your one-stop digital library solution, providing easy access
+      to books and library services with an intuitive interface and advanced
+      features.
+    </p>
+  </div>
+  <div class="footer-section faq">
+    <h3>FAQ</h3>
+    <ul>
+      <li><a href="#">How to issue a book?</a></li>
+      <li><a href="#">What is the fine for late returns?</a></li>
+      <li><a href="#">How can I renew a book online?</a></li>
+      <li><a href="#">How to access digital books?</a></li>
+    </ul>
+  </div>
+  <div class="footer-section library-info">
+    <h3>Library Info</h3>
+    <p>
+      <strong>Library Hours:</strong> Mon-Fri: 8 AM - 8 PM, Sat: 10 AM - 4 PM
+    </p>
+    <p>
+      <strong>Location:</strong> Bharati Vidyapeeth Institute of Technology
+    </p>
+  </div>
+  <div class="footer-section contact">
+    <h3>Contact Us</h3>
+    <p><i class="fas fa-phone"></i> +91-9876543210</p>
+    <p><i class="fas fa-phone"></i> +91-9123456789</p>
+    <p><i class="fas fa-envelope"></i> support@booknest.com</p>
+  </div>
+</div>
+<div class="footer-bottom">
+  <p>&copy; 2025 BookNest. All Rights Reserved.</p>
+</div>
+</footer>
+
+    
+
+    <script>
+        let booksData = {
+            "Computer Science": [
+                { title: "Data Structures", image: "cs1.webp" },
+                { title: "Algorithms", image: "cs2.jpeg" },
+                { title: "Operating Systems", image: "cs3.jpeg" }
+            ],
+            "Mechanical": [
+                { title: "Thermodynamics", image: "mech1.jpg" },
+                { title: "Fluid Mechanics", image: "mech2.jpg" }
+            ],
+            "Civil": [
+                { title: "Building Construction", image: "civil1.jpg" },
+                { title: "Structural Analysis", image: "civil2.jpg" }
+            ]
+            // Add more departments and books
+        };
+
+        // Get department name from URL
+        let urlParams = new URLSearchParams(window.location.search);
+        let department = urlParams.get("dept");
+
+        document.getElementById("dept-title").innerText += department;
+
+        let booksContainer = document.getElementById("books");
+
+        if (booksData[department]) {
+            booksData[department].forEach(book => {
+                let div = document.createElement("div");
+                div.classList.add("book-card");
+                div.innerHTML = `
+                    <img src="${book.image}" alt="${book.title}">
+                    <p>${book.title}</p>
+                `;
+                booksContainer.appendChild(div);
+            });
+        } else {
+            booksContainer.innerHTML = "<p>No books available for this department.</p>";
+        }
+    </script>
+</body>
+</html>

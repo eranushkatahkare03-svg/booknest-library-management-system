@@ -1,0 +1,67 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 300px;
+}
+h2 {
+    color: #333;
+}
+.request {
+    margin-top: 20px;
+}
+#request-text {
+    font-size: 18px;
+    color: #333;
+}
+.buttons {
+    margin-top: 20px;
+}
+.btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    margin: 10px;
+}
+#accept-btn {
+    background-color: #4CAF50;
+    color: white;
+}
+#cancel-btn {
+    background-color: #f44336;
+    color: white;
+}
+.btn:hover {
+    opacity: 0.8;
+}
+#student-id-section {
+    display: none;
+    margin-top: 15px;
+}
+#student-id {
+    padding: 10px;
+    width: 80%;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
+}
+#confirm-btn {
+    background-color: #008CBA;
+    color: white;
+    display: none;
+}
